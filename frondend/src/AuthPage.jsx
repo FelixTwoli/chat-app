@@ -1,14 +1,23 @@
+import axios from "axios";
+
 const AuthPage = (props) => {
     const onSubmit = (e) => {
       e.preventDefault();
       const { value } = e.target[0];
-      props.onAuth({ username: value, secret: value });
+
+      axios.post
+      ('http://localhost:3001/auth', 
+      { username: value, secret: value })
+
+      .then(res => {props.onAuth({ ...res.data, secret: value });})
+      .catch(err => console.log('error', e));
+    
     };
   
     return (
       <div className="background">
         <form onSubmit={onSubmit} className="form-card">
-          <div className="form-title">Welcome 👋</div>
+          <div className="form-title">Welcome </div>
   
           <div className="form-subtitle">Set a username to get started</div>
   
@@ -16,7 +25,7 @@ const AuthPage = (props) => {
             <div className="auth-label">Username</div>
             <input className="auth-input" name="username" />
             <button className="auth-button" type="submit">
-              Enter
+              Submit
             </button>
           </div>
         </form>
