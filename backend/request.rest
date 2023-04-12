@@ -1,5 +1,5 @@
-PUT http://localhost:5000/authenticate 
+POST http://localhost:5506/authenticate 
 Content-Type: application/json
     
-    { "username": "Abdul" }
+    { "username": "Ahsss" }
 

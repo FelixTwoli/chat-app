@@ -16,7 +16,7 @@ app.post("/authenticate", async (req, res) => {
         secret: username,
         first_name: username,
       },
-      { headers: { private_key: "2e12e366-c482-4a50-8a01-d4adb978247d" } }
+      { headers: {private_key: "2e12e366-c482-4a50-8a01-d4adb978247d"} }
     );
     return res.status(response.status).json(response.data);
   } catch (error) {
@@ -24,6 +24,6 @@ app.post("/authenticate", async (req, res) => {
   }
 });
 
-const server = app.listen(5000, () => {
+const server = app.listen(5506, () => {
   console.log(`Server listening on port ${server.address().port}`);
 });
