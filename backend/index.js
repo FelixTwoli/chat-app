@@ -9,7 +9,7 @@ app.use(cors({ origin: true }));
 app.post("/authenticate", async (req, res) => {
   const { username } = req.body;
   try {
-    const response = await axios.put(
+    const response = await axios.post(
       "https://api.chatengine.io/users/",
       {
         username: username,
@@ -24,6 +24,6 @@ app.post("/authenticate", async (req, res) => {
   }
 });
 
-const server = app.listen(5506, () => {
+const server = app.listen(5508, () => {
   console.log(`Server listening on port ${server.address().port}`);
 });
